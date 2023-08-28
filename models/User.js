@@ -22,16 +22,19 @@ const UserSchema = new mongoose.Schema({
     },
     descroption:{
         type:String,
+        default:'',
         max: 2000,
         min:10
     },
     city:{
         type: String,
+        default:'',
         min:3,
         max:50
     },
     country:{
         type: String,
+        default:'',
         min:3,
     },
     profilePicture:{
