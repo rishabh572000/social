@@ -20,6 +20,20 @@ const UserSchema = new mongoose.Schema({
         min:5,
         max:250
     },
+    descroption:{
+        type:String,
+        max: 2000,
+        min:10
+    },
+    city:{
+        type: String,
+        min:3,
+        max:50
+    },
+    country:{
+        type: String,
+        min:3,
+    },
     profilePicture:{
         type:String,
         default:''
