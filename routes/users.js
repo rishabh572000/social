@@ -51,11 +51,11 @@ router.put("/followUser/:id", async(req, res)=>{
             let follow=[], following=[];
             // console.log(req.params.id)
              await User.findByIdAndUpdate(req.params.id, {
-                following: following.push(req.body.followId)
+                $set:{following: req.body.followId}
             }, { new: true }
             )
             await User.findByIdAndUpdate(req.body.followId, {
-                followers: follow.push(req.params.id)
+                $set:{followers: req.params.id}
             }, { new: true }
             )
             res.status(200).json('Account follow successfully')
@@ -64,6 +64,7 @@ router.put("/followUser/:id", async(req, res)=>{
         }
        const user = await User.findById(req.params.id)
        res.status(200).json(user)
+    
     }catch(err){
         res.status(500).json('something went wrong')
     }
